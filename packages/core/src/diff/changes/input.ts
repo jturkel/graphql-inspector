@@ -32,7 +32,7 @@ export function inputFieldAdded(
       ? {
           level: CriticalityLevel.Breaking,
           reason:
-            'Adding a possible type to Unions may break existing clients that were not programming defensively against a new possible type.',
+            'Adding a required input field to an existing input object type is a breaking change because it will cause existing uses of this input object type to error.',
         }
       : {
           level: CriticalityLevel.Dangerous,
@@ -95,7 +95,7 @@ export function inputFieldDefaultValueChanged(
     criticality: {
       level: CriticalityLevel.Dangerous,
       reason:
-        'Changing the default value for an argument may change the runtime behaviour of a field if it was never provided.',
+        'Changing the default value for an input field may change the runtime behaviour of a field if it was never provided.',
     },
     type: ChangeType.InputFieldDefaultValueChanged,
     message: `Input field '${input.name}.${oldField.name}' default value changed from '${oldField.defaultValue}' to '${newField.defaultValue}'`,
